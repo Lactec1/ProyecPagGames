@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif; /* Fuente para el cuerpo */
+}
+
+.gallery {
+    display: flex; /* Muestra las imágenes en una fila */
+    justify-content: center; /* Centra la galería */
+}
+
+.image-container {
+    /*display: grid;*/
+    position: absolute; /* Superpone las imágenes */
+    grid-template-columns: repeat(4,1fr);
+    margin: 0px; /* Margen entre las imágenes */
+    height: 400px; /* Alto fijo para cada contenedor */
+    width: 400px; /* Ancho fijo para cada contenedor */
+    /*position: relative;*/ /* Para ajustar la posición en la cuadrícula */
+    overflow: hidden; /* Oculta la parte de la imagen que no se ve */
+    transition: transform 0.3s ease; /* Suaviza la transición del contenedor */
+    margin-left: -50px; /* Superpone parcialmente las imágenes entre sí */
+}
+
+.image-container:nth-child(1) { left: 220px; /*z-index: 1;*/ }  /* Primera imagen */
+.image-container:nth-child(2) { left: 440px; /*z-index: 2;*/ } /* Segunda imagen */
+.image-container:nth-child(3) { left: 660px; /*z-index: 3;*/ } /* Tercera imagen */
+.image-container:nth-child(4) { left: 880px; /*z-index: 4;*/ } /* Cuarta imagen */ 
+
+.gallery-image {
+    width: 100%; /* La imagen ocupa todo el contenedor */
+    height: 100%; /* La imagen ocupa todo el contenedor */
+    object-fit:scale-down; /* Mantiene la proporción de la imagen */
+    transition: transform 0.3s ease /*all 300ms*/; /* Suaviza la transición de la imagen */
+    /*transform: translateY(-200px);*/ /* Oculta gran parte de la imagen inicialmente */
+}
+
+.image-container:hover .gallery-image {
+    transform: scale(1.3); /* Expande la imagen al pasar el mouse */
+
+}
+
+.image-container:hover {
+    z-index: 10; /* Asegura que la imagen en expansión esté por encima de las demás */
+    /*transform: translateY(0);*/ /* Mueve la imagen para mostrarla completamente */
+}
